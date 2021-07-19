@@ -15,7 +15,7 @@
 
 ![image-20210720002121286](README.assets/image-20210720002121286.png)
 
-3. 从 [这里](https://github.com/aiyamia/fangpian_chrome/releases/latest) 下载最新版压缩包，解压之后，将`README.md`文件上一级的**fangpian_chrome**文件夹用鼠标拖入上面这个扩展页面，就会自动完成安装。
+3. 从 [这里](https://github.com/aiyamia/fangpian_chrome/releases) 下载最新版压缩包`fangpian_chrome.rar`，解压之后，将`README.md`文件上一级的**fangpian_chrome**文件夹用鼠标拖入上面这个扩展页面，就会自动完成安装。
 
 4. 如果安装之后你在浏览器最上方找不到这个扩展，它可能被折叠了。你需要点击下图这个标志展开扩展程序栏
 
