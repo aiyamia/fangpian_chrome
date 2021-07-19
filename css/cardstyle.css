@@ -1,0 +1,15 @@
+.FangPianCard {
+  width: 14vw;
+  height: auto;
+  position: absolute;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color:#333;
+  line-height: 33px;
+  word-wrap: break-word;
+  border: 0.05em solid black;
+  border-radius: 0.5em;
+  box-shadow: 0.1em 0.1em 0 0 #555;
+  padding: 0.5em;
+}
