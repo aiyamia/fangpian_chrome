@@ -1,20 +1,21 @@
-# Fangpian_chrome
-方片，纯粹的单词卡片（Chrome扩展） A Chrome extension for Chinese to learn english words
+# Fangpian_Chrome
+方片，纯粹的单词卡片（Chrome扩展）
+A Chrome extension for Chinese to learn english words
 
 
 
-本项目是《**方片**》系列的第一个正式作品，是一个Chrome浏览器扩展（俗称”插件“）
+本项目为《**方片**》系列第一个正式作品，是一个Chrome浏览器扩展（俗称”插件“）。
 
 
 ## 开始使用（Getting Started）
 
-来到含有你所要了解含义的词的任意页面（如果该页面在插件安装前已经加载过，需要刷新一下页面），按住ctrl（Mac用户是cmd）键，用鼠标点击这个词，片刻之后会出现这个词的音标和释义。
+在任意页面（如果该页面在插件安装前已经加载过，需要刷新一下此页面），按住ctrl（Mac用户是cmd）键，用鼠标点击你要查的单词，片刻后会出现含有它的音标和释义的一张卡片。
 
 <p align="center">
 <img src="README.assets/image-20210720004931743.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
 </p>
 
-当你需要关闭这个卡片的时候，只需要点击一下卡片之外的页面。
+当需要关闭这个卡片的时候，只用点击一下卡片外的页面。
 
 <p align="center">
 <img src="README.assets/20210720_005500.gif" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
@@ -22,7 +23,7 @@
 
 ## 安装方法（Installation）
 
-1. 在Chrome浏览器里地址栏输入`chrome://extensions/` 回车，来到扩展页面。
+1. 在Chrome浏览器地址栏输入`chrome://extensions/`，回车，来到扩展页面。
 
 2. 确保右上角的**开发者模式**处于打开状态，如下图：
 
@@ -30,9 +31,9 @@
 <img src="README.assets/image-20210720002121286.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
 </p>
 
-1. 从 [这里（如果你能访问github）](https://github.com/aiyamia/fangpian_chrome/releases) 或者 [这里（如果你不能访问github）](https://gitee.com/aiyamia/fangpian_chrome/releases)下载最新发布的压缩包`fangpian_chrome.rar`，解压之后，将`manifest.json`文件上一级的**fangpian_chrome**文件夹用鼠标拖入上面这个扩展页面，就会自动完成安装。
+3. 从 [这里（若能访问github）](https://github.com/aiyamia/fangpian_chrome/releases) 或 [这里（若不能访问github）](https://gitee.com/aiyamia/fangpian_chrome/releases)下载最新发布的压缩包`fangpian_chrome.rar`。解压后，将`manifest.json`文件上一级的**fangpian_chrome**文件夹用鼠标拖入上面这个扩展页面，就会自动完成安装。
 
-2. 如果安装之后你在浏览器最上方找不到这个扩展，它可能被折叠了。你需要点击下图这个标志展开扩展程序栏
+4. 若安装后在浏览器上方找不到该扩展，它可能是被折叠了。你需要点击下图这个标志展开扩展程序栏。
 
 <p align="center">
 <img src="README.assets/image-20210720002911380.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
@@ -65,8 +66,10 @@
 2. 考虑支持多语种
 
 
-## 欢迎你的想法和体验（Your ideas and experiences are wellcome）
+## 欢迎你的想法和体验（Your ideas matter）
 
 你在使用中的任何想法都会被作者认真考虑。也欢迎和我一起来开发~
+
 用户交流qq群：791712164
-加群答案：mia
+
+加群问题答案：mia
