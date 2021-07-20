@@ -1,4 +1,4 @@
-# fangpian_chrome
+# Fangpian_chrome
 方片，纯粹的单词卡片（Chrome扩展） A Chrome extension for Chinese to learn english words
 
 
