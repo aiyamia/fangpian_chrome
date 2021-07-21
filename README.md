@@ -26,6 +26,7 @@ A Chrome extension for Chinese to learn english words
 <p align="center">
 <img src="README.assets/image-20210721154206.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
 </p>
+
 在每个单词卡**侧边**点击，会翻转卡片。正面为单词，背面为音标和释义。
 
 <p align="center">
