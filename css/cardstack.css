@@ -17,7 +17,7 @@ body {
   width: 14vw;
   height: 14vw;
   background: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman","Microsoft Yahei",SimSun,Arial, Helvetica, sans-serif;
   font-size: 1vw;
   color:#333;
   line-height: 2vw;
@@ -58,15 +58,22 @@ body {
   transform: rotateY(180deg);
   overflow: auto;
 }
-
+.pronunciation{
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.meaning{
+  margin-bottom: 0.5em;
+}
 .meaning_ps{
-  margin-right: 0.5em;
+  padding-right: 0.5em;
   text-align: right;
   vertical-align: top;
   width:auto;
-  
+  font-size: 2em;
 }
 .meaning_exp{
+  font-size: 1.15em;
   text-align: left;
   vertical-align: top;
   display: flex;
