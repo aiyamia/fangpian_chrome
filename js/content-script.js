@@ -46,10 +46,13 @@ $(document).ready(function () {
   });
   const getCardNode = async(word)=>{
     const data = await fetchData(word);
+    chrome.runtime.sendMessage({word: word,word_detail:data}, function(response) {
+      console.log(response.farewell);
+    });
     $card = $('<div class="FangPianCard"></div>');
     $pron = $('<div class="pronunciation"></div>');
-    $mean = $('<div class="meaning"></div>');
-    data.meaning.forEach(element => {
+    $mean = $('<div class="meanings"></div>');
+    data.meanings.forEach(element => {
       const mean_str = element.ps+ " " + element.exp.join("；");
       $mean.append( `<p>${mean_str}</p>` );
     });
@@ -62,7 +65,7 @@ $(document).ready(function () {
     let response = await fetch(`https://dictweb.translator.qq.com/api/elementary?word=${word}`);
     let result = await response.json();
     let data = {
-      meaning:result.oxford_dict_info.abstract,
+      meanings:result.oxford_dict_info.abstract,
       pronunciation:result.oxford_dict_info.ph_json
     };
     return data;

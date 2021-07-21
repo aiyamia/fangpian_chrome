@@ -1,0 +1,107 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+#cardstack{
+  padding: 3em;
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card {
+  position: relative;
+  width: 14vw;
+  height: 14vw;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+  color:#333;
+  line-height: 2vw;
+  word-wrap: break-word;
+  border: 0.05em solid black;
+  border-radius: 0.5em;
+  box-shadow: 0.1em 0.1em 0 0 #555;
+  padding: 0.5em;
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+/* .card * {
+  pointer-events: none;
+} */
+.flipCard {
+  transform: rotateY(180deg);
+}
+.front, .back{
+  position: absolute;/* 必须absolute，不然不能重叠 */
+  width: inherit;
+  height: inherit;
+  backface-visibility: hidden; /* Safari */
+  text-align: center;
+  background:white;
+  color:#333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.front {
+  font-size: 2em;
+  font-weight: bold;
+  background: rgb(250, 227, 244);
+  pointer-events: none;
+}
+.back {
+  transform: rotateY(180deg);
+  overflow: auto;
+}
+
+.meanings{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 1em 0 1em;
+}
+/* .meanings *{
+  margin: 0;
+} */
+
+.meaning{
+  display: flex;
+}
+.meaning_ps{
+  margin-right: 0.5em;
+  text-align: right;
+  width:3em;
+}
+.meaning_exp{
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+.controlbar{
+  height: 4vw;
+}
+#clear{
+  float: right;
+  margin: 1vw;
+  width: 4vw;
+  height: 2vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+  color:#333;
+  box-shadow: 0.1em 0.1em 0 0 #555,-0.1em -0.1em 0 0 #555;
+}
+#clear:hover{
+  background: #333;
+  color:white;
+}
+#clear:active{
+  background: #333;
+  color:white;
+  box-shadow: 0.1em -0.1em 0 0 #555,-0.1em 0.1em 0 0 #555;
+}

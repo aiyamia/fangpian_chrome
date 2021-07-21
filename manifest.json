@@ -23,5 +23,9 @@
 			"run_at": "document_start"
 		}
 	],
-  "homepage_url": "https://github.com/aiyamia"
+  "homepage_url": "https://github.com/aiyamia",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs"]
 }
