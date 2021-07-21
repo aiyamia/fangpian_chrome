@@ -21,11 +21,11 @@ A Chrome extension for Chinese to learn english words
 </p>
 会自动在当前标签页右边打开一个新标签页查看所搜集过的单词卡片。
 
-页面右上角的**清空**按钮，为这些卡片提供了**一键删除**功能。（注意！这个删除是不可逆的，操作前需考虑好。）
-
 <p align="center">
 <img src="README.assets/image-20210721154206.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
 </p>
+
+页面右上角的**清空**按钮，为这些卡片提供了**一键删除**功能。（注意！这个删除是不可逆的，操作前需考虑好。）
 
 在每个单词卡**侧边**点击，会翻转卡片。正面为单词，背面为音标和释义。
 
