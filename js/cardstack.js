@@ -22,15 +22,15 @@ $(document).ready(async function () {
       $front = $(`<div class="front">${word}</div>`)
       $back = $('<div class="back"></div>')
       $pron = $('<div class="pronunciation"></div>');
-      $meanings = $('<div class="meanings"></div>');
+      $meanings = $('<table class="meanings"></table>');
       data.meanings.forEach(meaning => {
-        $ps = $(`<div class="meaning_ps">${meaning.ps}</div>`);
-        $exp = $('<div class="meaning_exp"></div>');
+        $ps = $(`<td class="meaning_ps">${meaning.ps}</td>`);
+        $exp = $('<td class="meaning_exp"></td>');
         meaning.exp.forEach(exp_word=>{
           $exp.append(`<span class="exp_word">${exp_word}；</span>`);
           console.log(`<span class="exp_word">${exp_word}；</span>`);
         })
-        $meaning = $('<div class="meaning"></div>');
+        $meaning = $('<tr class="meaning"></tr>');
         $meaning.append($ps);
         $meaning.append($exp);
         $meanings.append($meaning);

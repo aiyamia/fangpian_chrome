@@ -25,7 +25,7 @@ body {
   border: 0.05em solid black;
   border-radius: 0.5em;
   box-shadow: 0.1em 0.1em 0 0 #555;
-  padding: 0.5em;
+  padding: 1.5em;
   transform-style: preserve-3d;
   transition: all 0.7s ease;
 }
@@ -59,26 +59,16 @@ body {
   overflow: auto;
 }
 
-.meanings{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 1em 0 1em;
-}
-/* .meanings *{
-  margin: 0;
-} */
-
-.meaning{
-  display: flex;
-}
 .meaning_ps{
   margin-right: 0.5em;
   text-align: right;
-  width:3em;
+  vertical-align: top;
+  width:auto;
+  
 }
 .meaning_exp{
   text-align: left;
+  vertical-align: top;
   display: flex;
   flex-wrap: wrap;
 }
