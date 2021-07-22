@@ -24,7 +24,8 @@ body {
   word-wrap: break-word;
   border: 0.05em solid black;
   border-radius: 0.5em;
-  box-shadow: 0.1em 0.1em 0 0 #555;
+  /* box-shadow: 0.1em 0.1em 0 0 #555; */
+  box-shadow: 0 0 3px #999;
   padding: 1.5em;
   transform-style: preserve-3d;
   transition: all 0.7s ease;

@@ -47,7 +47,7 @@ $(document).ready(function () {
   const getCardNode = async(word)=>{
     const data = await fetchData(word);
     chrome.runtime.sendMessage({word: word,word_detail:data}, function(response) {
-      console.log(response.farewell);
+      // console.log(response.farewell);
     });
     $card = $('<div class="FangPianCard"></div>');
     $pron = $('<div class="pronunciation"></div>');
@@ -56,7 +56,7 @@ $(document).ready(function () {
       const mean_str = element.ps+ " " + element.exp.join("；");
       $mean.append( `<p>${mean_str}</p>` );
     });
-    $pron.append( `/${data.pronunciation.BrE}/` );
+    $pron.append( `/${data.pronunciation.BrE ?? data.pronunciation ?? ""}/` );
     $card.append($pron);
     $card.append($mean);
     return $card;
@@ -66,7 +66,7 @@ $(document).ready(function () {
     let result = await response.json();
     let data = {
       meanings:result.oxford_dict_info.abstract,
-      pronunciation:result.oxford_dict_info.ph_json
+      pronunciation:result.oxford_dict_info.ph_json ?? result.book_word_info.phonetic ?? ""
     };
     return data;
   };

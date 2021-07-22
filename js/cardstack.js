@@ -26,9 +26,12 @@ $(document).ready(async function () {
       data.meanings.forEach(meaning => {
         $ps = $(`<td class="meaning_ps">${meaning.ps}</td>`);
         $exp = $('<td class="meaning_exp"></td>');
-        meaning.exp.forEach(exp_word=>{
-          $exp.append(`<span class="exp_word">${exp_word}；</span>`);
-          console.log(`<span class="exp_word">${exp_word}；</span>`);
+        meaning.exp.forEach((exp_word,index,exp_arr)=>{
+          if(index != exp_arr.length-1){
+            $exp.append(`<span class="exp_word">${exp_word}；</span>`);
+          }else{
+            $exp.append(`<span class="exp_word">${exp_word}</span>`);
+          }
         })
         $meaning = $('<tr class="meaning"></tr>');
         $meaning.append($ps);
