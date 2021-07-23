@@ -74,7 +74,7 @@ $(document).ready(async function () {
     };
   };
   
-  // await loadData();
+  await loadData();
   update_grid(0,0);
   let isPan = false;
   let isMove = false;
