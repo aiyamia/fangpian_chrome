@@ -75,6 +75,9 @@ $(document).ready(async function () {
   };
   
   await loadData();
+  var canvasbox = $('.canvasbox')[0];
+  canvasbox.style.width = bw + "px"; 
+  canvasbox.style.height = bh + "px"; 
   update_grid(0,0);
   let isPan = false;
   let isMove = false;

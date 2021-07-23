@@ -139,12 +139,16 @@ body {
   color:#333;
   box-shadow: -0.1em -0.1em 0 0 #555;
 }
-.grid{
+.canvasbox{
+  position: relative;
+  overflow: hidden;
   border: 5px solid #005bb8;
   border-radius: 3em;
-  /* border:1px solid black; */
-  /* box-shadow: 0 0 3px #999; */
 }
+/* .grid{
+  border:1px solid black;
+  box-shadow: 0 0 3px #999;
+} */
 .mouse{
   position: absolute;
   background: #eee;
