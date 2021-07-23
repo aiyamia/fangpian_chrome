@@ -1,6 +1,16 @@
+:root{
+  --is-squre: 1;
+  --FPcard-width:calc(var(--is-squre) * 14vw + (1 - var(--is-squre)) * 9vw);
+  --FPcard-ph-fontsize:calc(var(--is-squre) * 2em + (1 - var(--is-squre)) * 1.5em);
+  --FPcard-ps-fontsize:calc(var(--is-squre) * 2em + (1 - var(--is-squre)) * 1.2em);
+  --FPcard-exp-fontsize:calc(var(--is-squre) * 1.15em + (1 - var(--is-squre)) * 1em);
+}
+
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin:0;
 }
 #cardstack{
   padding: 3em;
@@ -14,11 +24,10 @@ body {
 }
 .card {
   position: relative;
-  width: 14vw;
+  width: var(--FPcard-width);
   height: 14vw;
   background: white;
   font-family: "Times New Roman","Microsoft Yahei",SimSun,Arial, Helvetica, sans-serif;
-  font-size: 1vw;
   color:#333;
   line-height: 2vw;
   word-wrap: break-word;
@@ -60,7 +69,7 @@ body {
   overflow: auto;
 }
 .pronunciation{
-  font-size: 2em;
+  font-size: var(--FPcard-ph-fontsize);
   margin-bottom: 0.5em;
 }
 .meaning{
@@ -71,10 +80,10 @@ body {
   text-align: right;
   vertical-align: top;
   width:auto;
-  font-size: 2em;
+  font-size: var(--FPcard-ps-fontsize);
 }
 .meaning_exp{
-  font-size: 1.15em;
+  font-size: var(--FPcard-exp-fontsize);
   text-align: left;
   vertical-align: top;
   display: flex;
@@ -83,7 +92,8 @@ body {
 .controlbar{
   height: 4vw;
 }
-#clear{
+
+.controlbar > *{
   float: right;
   margin: 1vw;
   width: 4vw;
@@ -92,14 +102,50 @@ body {
   border-radius: 5px;
   background: white;
   color:#333;
-  box-shadow: 0.1em 0.1em 0 0 #555,-0.1em -0.1em 0 0 #555;
+  box-shadow: 0.1em 0.1em 0 0 #555;
+}
+.controlbar > *:hover{
+  background: #888;
+  color:white;
 }
 #clear:hover{
-  background: #333;
+  background: rgb(255, 81, 81);
   color:white;
 }
-#clear:active{
-  background: #333;
-  color:white;
-  box-shadow: 0.1em -0.1em 0 0 #555,-0.1em 0.1em 0 0 #555;
+
+#clear .tooltiptext {
+  visibility: hidden;
+  width: 5em;
+  height: 3em;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  left:55vw;
+
+  z-index: 1;
+  border:1px solid black;
+  box-shadow: 0 0 3px #999;
+}
+
+#clear:hover .tooltiptext {
+  visibility: visible;
+}
+
+.controlbar > *:active{
+  background: white;
+  color:#333;
+  box-shadow: -0.1em -0.1em 0 0 #555;
+}
+.grid{
+  border: 5px solid #005bb8;
+  border-radius: 3em;
+  /* border:1px solid black; */
+  /* box-shadow: 0 0 3px #999; */
+}
+.mouse{
+  position: absolute;
+  background: #eee;
 }

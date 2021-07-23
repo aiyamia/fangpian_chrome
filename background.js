@@ -28,8 +28,15 @@ chrome.runtime.onMessage.addListener(
       description : 'store the words data of pronunciation and meaning',
       size        : 1000, // Size of database, in bytes. IndexedDB-only for now.
     });
+    var context_table = localforage.createInstance({
+      name: "Fangpian",
+      storeName   : 'context_table', // Should be alphanumeric, with underscores.
+      description : 'store the context data of words',
+      size        : 1000, // Size of database, in bytes. IndexedDB-only for now.
+    });
     // console.log(`background：所查词为 ${request.word}，准备返回消息`);
-    sendResponse({farewell: `background：所查词为 ${request.word}`});//这个回应要放在异步行为之前，不然会报错：https://stackoverflow.com/questions/54126343/how-to-fix-unchecked-runtime-lasterror-the-message-port-closed-before-a-respon
-    await word_table.setItem(request.word, request.word_detail);
+    sendResponse({farewell: `background：所查词为 ${request.word_text}`});//这个回应要放在异步行为之前，不然会报错：https://stackoverflow.com/questions/54126343/how-to-fix-unchecked-runtime-lasterror-the-message-port-closed-before-a-respon
+    await word_table.setItem(request.word_text, request.word_detail);
+    await context_table.setItem(request.word_text, request.word_context);
   }
 );

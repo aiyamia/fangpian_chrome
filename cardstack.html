@@ -7,13 +7,19 @@
   <title>卡片库</title>
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/localforage.min.js"></script>
+  <script src="js/macKeys.js"></script>
+  <script src="js/fangpian-ui.js"></script>
   <script src="js/cardstack.js"></script>
   <link rel="stylesheet" href="css/cardstack.css">
 </head>
 <body>
   <div class="controlbar">
-    <button id="clear">清空</button>
+    <button id="clear">清空<div class="tooltiptext">!!!打咩(ÒωÓױ)</div></button>
+    <button id="flavor">大小卡</button>
   </div>
+  <canvas class="grid"></canvas>
+  <div class="mouse"></div>
   <div id="cardstack"></div>
+  
 </body>
 </html>

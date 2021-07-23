@@ -18,21 +18,14 @@ $(document).ready(function () {
       } else if (document.selection) {
         s = document.selection.createRange();
       }
-      var range = s.getRangeAt(0);
-      var node = s.anchorNode;
-      while (range.startOffset > 0 && /[a-zA-Z]/.test(range.toString()[0])) {
-        range.setStart(node, (range.startOffset - 1));
-      }
-      if (range.startOffset != 0)
-        range.setStart(node, range.startOffset + 1);
-      do {
-        range.setEnd(node, range.endOffset + 1);
-      }
-      while (/[a-zA-Z]/.test(range.toString().slice(-1)));
-      range.setEnd(node, range.endOffset - 1);
-      var word = range.toString().trim();
+
+      var word = getSelectedWord(s);
       if (word != '') {
-        $card = await getCardNode(word);
+        var sentence=getSelectedSentence(s);
+        let [word_text,word_detail] = await fetchData(word);
+        const word_context = {sentence,url:window.location.href,timestamp:Date.now()};
+        chrome.runtime.sendMessage({word_text,word_detail,word_context});
+        $card = await getCardNode(word_detail);
         $card.css({
           "top": e.pageY,
           "left": e.pageX
@@ -44,11 +37,45 @@ $(document).ready(function () {
       $(this).trigger('onmouseup');
     }
   });
-  const getCardNode = async(word)=>{
-    const data = await fetchData(word);
-    chrome.runtime.sendMessage({word: word,word_detail:data}, function(response) {
-      // console.log(response.farewell);
-    });
+
+  const getSelectedSentence = (s)=>{
+    let range = s.getRangeAt(0);
+    let node = s.anchorNode;
+    let regexp = /[^\.。?!？！]/;
+    while (range.startOffset > 0 && regexp.test(range.toString()[0])) {
+      range.setStart(node, (range.startOffset - 1));
+    }
+    if (range.startOffset != 0)
+      range.setStart(node, range.startOffset + 1);
+    do {
+      range.setEnd(node, range.endOffset + 1);
+    }
+    while (regexp.test(range.toString().slice(-1)));
+    range.setEnd(node, range.endOffset - 1);
+
+    let sentence = range.toString().trim();
+    s.removeRange(range);
+    return sentence;
+  }
+
+  const getSelectedWord = (s)=>{
+    let range = s.getRangeAt(0);
+    let node = s.anchorNode;
+    while (range.startOffset > 0 && /[a-zA-Z]/.test(range.toString()[0])) {
+      range.setStart(node, (range.startOffset - 1));
+    }
+    if (range.startOffset != 0)
+      range.setStart(node, range.startOffset + 1);
+    do {
+      range.setEnd(node, range.endOffset + 1);
+    }
+    while (/[a-zA-Z]/.test(range.toString().slice(-1)));
+    range.setEnd(node, range.endOffset - 1);
+    let word = range.toString().trim();
+    return word;
+  }
+
+  const getCardNode = async(data)=>{
     $card = $('<div class="FangPianCard"></div>');
     $pron = $('<div class="pronunciation"></div>');
     $mean = $('<div class="meanings"></div>');
@@ -64,11 +91,12 @@ $(document).ready(function () {
   const fetchData = async(word)=>{
     let response = await fetch(`https://dictweb.translator.qq.com/api/elementary?word=${word}`);
     let result = await response.json();
+    console.log(result);
     let data = {
       meanings:result.oxford_dict_info.abstract,
       pronunciation:result.oxford_dict_info.ph_json ?? result.book_word_info.phonetic ?? ""
     };
-    return data;
+    return [result.word.text ?? word,data];
   };
   const onClickOutside = (e) => {
     if (!$(e.target).closest('.FangPianCard').length) {
