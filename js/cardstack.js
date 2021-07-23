@@ -75,11 +75,11 @@ $(document).ready(async function () {
   };
   
   // await loadData();
-  update_grid(0,0,0,0,0,0);
+  update_grid(0,0);
   let isPan = false;
   let isMove = false;
-  var x_start = 0;
-  var y_start = 0;
+  var x = 0;
+  var y = 0;
   var Dx = 0;
   var Dy = 0;
   var keydownFired = false;
@@ -100,8 +100,8 @@ $(document).ready(async function () {
   $(".grid").mousedown((e)=>{
     if (isPan) {
       $(".grid").css("cursor", "grabbing");
-      x_start  = e.offsetX;
-      y_start = e.offsetY;
+      x = e.offsetX;
+      y = e.offsetY;
       isMove = true;
     }else{
       $(this).trigger('onmousedown');
@@ -109,14 +109,19 @@ $(document).ready(async function () {
   });
   $(".grid").mousemove((e)=>{
     if (isMove&&isPan) {
-      update_grid(e.offsetX,e.offsetY,x_start,y_start,Dx,Dy)
+      dx = e.offsetX - x;
+      dy = e.offsetY - y;
+      Dx += dx;
+      Dy += dy;
+      update_grid(Dx,Dy);
+      update_mouse(dx,dy);
+      x = e.offsetX;
+      y = e.offsetY;
     }
   });
   $(".grid").mouseup((e)=>{
     if (isPan&&isMove) {
       $(".grid").css("cursor", "grab");
-      Dx += x_start - e.offsetX;
-      Dy += y_start - e.offsetY;
       isMove = false;
     }else{
       $(this).trigger('onmouseup');
@@ -125,20 +130,9 @@ $(document).ready(async function () {
   
   $(".grid").click((e)=>{
     if (!keydownFired) {
-      let y = e.offsetY;
-      let x = e.offsetX;
-      // let ddy = Dy>=0 ? (y-(y+Dy)%ch) : (y-(ch-(-Dy-y)%ch));
-      // // console.log(`ddy: ${ddy};ch:${ch};Dy:${Dy};y:${y};\ny+Dy:${y+Dy};(y+Dy)%ch:${(y+Dy)%ch};\ny-(y+Dy)%ch:${y-(y+Dy)%ch}`);
-      // console.log(`ddy: ${ddy};ch:${ch};Dy:${Dy};y:${y};\n-Dy-y:${-Dy-y};(-Dy-y)%ch:${(-Dy-y)%ch};\n(ch-(-Dy-y)%ch):${(ch-(-Dy-y)%ch)}\ny-(ch-(-Dy-y)%ch):${y-(ch-(-Dy-y)%ch)}`);
-      
-      let z1 = Math.floor((Dx+x)/cw);
-      let z2 = Math.floor((Dy+y)/ch);
   
-      let x_mouse_global = z1 * cw;
-      let y_mouse_global = z2 * ch;
-  
-      let mouse_left = x_mouse_global - Dx + cw/2 + 2.5;
-      let mouse_top = y_mouse_global - Dy + ch/2 + 1.5;
+      let mouse_left = $(".grid")[0].offsetLeft + $(".grid")[0].clientLeft + cw * Math.floor((-Dx+e.offsetX)/cw)+Dx + 1;
+      let mouse_top = $(".grid")[0].offsetTop + $(".grid")[0].clientTop + ch * Math.floor((-Dy+e.offsetY)/ch)+Dy + 1;
   
       $(".mouse").css({
         width:cw-2 + 'px',

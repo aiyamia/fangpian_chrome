@@ -12,13 +12,10 @@ var cw = (Math.round(mult%2)===0?mult:mult+1) * dash_stroke_width;
 // cell height
 var ch = cw;
 
-function update_grid(x,y,x_s,y_s,Dx,Dy){
-
+function update_grid(Dx,Dy){
   //dx,dy本身就是整数
-  var oDx = cw - Dx % cw;
-  var oDy = ch - Dy % ch;
-  dx = (x-x_s + oDx) % cw
-  dy = (y-y_s + oDy) % ch;
+  del_x = Dx % cw;
+  del_y = Dy % ch;
 
   grid = $('.grid')[0];
   grid.width = bw; 
@@ -33,31 +30,27 @@ function update_grid(x,y,x_s,y_s,Dx,Dy){
 
   //纵线
   context.beginPath();
-  for (let Tx = 0; dx + Tx * cw <= bw; Tx += 1) {
-      context.moveTo(dx + Tx * cw, 0);
-      context.lineTo(dx + Tx * cw, bh);
+  for (let Tx = 0; del_x + Tx * cw <= bw; Tx += 1) {
+      context.moveTo(del_x + Tx * cw, 0);
+      context.lineTo(del_x + Tx * cw, bh);
   }
-  context.lineDashOffset = -dy+dash_stroke_width/2;
+  context.lineDashOffset = -del_y+dash_stroke_width/2;
   context.strokeStyle = "lightgrey";
   context.stroke();
 
   //横线
   context.beginPath();
-  for (let Ty = 0; dy + Ty * ch <= bh; Ty += 1) {
-      context.moveTo( 0, dy + Ty * ch);
-      context.lineTo(bw, dy + Ty * ch);
+  for (let Ty = 0; del_y + Ty * ch <= bh; Ty += 1) {
+      context.moveTo( 0, del_y + Ty * ch);
+      context.lineTo(bw, del_y + Ty * ch);
   }
-  context.lineDashOffset = -dx+dash_stroke_width/2;
+  context.lineDashOffset = -del_x+dash_stroke_width/2;
   context.strokeStyle = "lightgrey";
   context.stroke();
-
-  console.log(`dx: ${x - x_s};${x - x_s>0?"右移":"左移"}`);
-  console.log(`dy: ${y - y_s};${y - y_s>0?"下移":"上移"}`);
+}
+function update_mouse(dx,dy){
   $(".mouse").css({
-    left: parseInt($(".mouse").css("left").replace("px",'')) + x - x_s +'px',
-    top: parseInt($(".mouse").css("top").replace("px",'')) + y - y_s +'px'
+    left: parseInt($(".mouse").css("left").replace("px",'')) + dx +'px',
+    top: parseInt($(".mouse").css("top").replace("px",'')) + dy +'px'
   });
-  // console.log(`x:${x}`);
-  
-  
 }
