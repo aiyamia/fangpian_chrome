@@ -2,7 +2,7 @@
 方片，纯粹的单词卡片（Chrome扩展）
 A Chrome extension for Chinese to learn english words
 
-![访客数](https://visitor-badge.glitch.me/badge?page_id=aiyamia.fangpian_chrome) [![](https://img.shields.io/badge/QQ%E4%BA%A4%E6%B5%81%E7%BE%A4-%20791712164-blue)](https://jq.qq.com/?_wv=1027&k=OVTYnMLE) ![](https://img.shields.io/badge/License-MIT-lightgreen)
+![](https://img.shields.io/badge/release-0.0.3-blue) ![visitors](https://visitor-badge.glitch.me/badge?page_id=aiyamia.fangpian_chrome) ![](https://img.shields.io/badge/license-MIT-blue) [![](https://img.shields.io/badge/QQ%E4%BA%A4%E6%B5%81%E7%BE%A4-%20791712164-blue)](https://jq.qq.com/?_wv=1027&k=OVTYnMLE)
 
 本项目为《**方片**》系列第一个正式作品，是一个Chrome浏览器扩展（俗称”插件“）。
 
