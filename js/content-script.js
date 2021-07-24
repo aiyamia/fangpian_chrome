@@ -22,6 +22,7 @@ $(document).ready(function () {
       var word = getSelectedWord(s);
       if (word != '') {
         var sentence=getSelectedSentence(s);
+        // console.log(word+'\n'+sentence);
         let [word_text,word_detail] = await fetchData(word);
         const word_context = {sentence,url:window.location.href,timestamp:Date.now()};
         chrome.runtime.sendMessage({word_text,word_detail,word_context});
@@ -45,10 +46,17 @@ $(document).ready(function () {
     while (range.startOffset > 0 && regexp.test(range.toString()[0])) {
       range.setStart(node, (range.startOffset - 1));
     }
-    if (range.startOffset != 0)
+    if (range.startOffset != 0){
       range.setStart(node, range.startOffset + 1);
+    }
     do {
-      range.setEnd(node, range.endOffset + 1);
+      try{
+        range.setEnd(node, range.endOffset + 1);
+      }
+      catch(err){
+        // console.log(`${err}\nbut I can continue`);
+        break;
+      }
     }
     while (regexp.test(range.toString().slice(-1)));
     range.setEnd(node, range.endOffset - 1);
@@ -64,10 +72,18 @@ $(document).ready(function () {
     while (range.startOffset > 0 && /[a-zA-Z]/.test(range.toString()[0])) {
       range.setStart(node, (range.startOffset - 1));
     }
-    if (range.startOffset != 0)
+    if (range.startOffset != 0){
       range.setStart(node, range.startOffset + 1);
+    }
+    
     do {
-      range.setEnd(node, range.endOffset + 1);
+      try{
+        range.setEnd(node, range.endOffset + 1);
+      }
+      catch(err){
+        // console.log(`${err}\nbut I can continue`);
+        break;
+      }
     }
     while (/[a-zA-Z]/.test(range.toString().slice(-1)));
     range.setEnd(node, range.endOffset - 1);
@@ -91,7 +107,7 @@ $(document).ready(function () {
   const fetchData = async(word)=>{
     let response = await fetch(`https://dictweb.translator.qq.com/api/elementary?word=${word}`);
     let result = await response.json();
-    console.log(result);
+    // console.log(result);
     let data = {
       meanings:result.oxford_dict_info.abstract,
       pronunciation:result.oxford_dict_info.ph_json ?? result.book_word_info.phonetic ?? ""
