@@ -47,7 +47,7 @@ A Chrome extension for Chinese to learn english words
 <img src="README.assets/image-20210720002121286.png" style="border: 1px solid black;border-radius: 10px;box-shadow: 0.1em 0.1em 0 0 #555;"></img>
 </p>
 
-1. 从 [这里（若能访问github）](https://github.com/aiyamia/fangpian_chrome/releases) 或 [这里（若不能访问github）](https://gitee.com/aiyamia/fangpian_chrome/releases)下载最新发布的压缩包`fangpian_chrome.crx`文件。用鼠标将其拖入上面这个扩展页面，就会自动完成安装。
+1. 从 [这里（若能访问github）](https://github.com/aiyamia/fangpian_chrome/releases) 或 [这里（若不能访问github）](https://gitee.com/aiyamia/fangpian_chrome/releases)下载最新版本的`fangpian_chrome.crx`文件。用鼠标将其拖入上面这个扩展页面，就会自动完成安装。
 
 2. 若安装后在浏览器上方找不到该扩展，它可能是被折叠了。你需要点击下图这个标志展开扩展程序栏。
 
